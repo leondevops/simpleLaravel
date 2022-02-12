@@ -1,0 +1,455 @@
+
+@import 'fonts';
+@import 'format';
+@import 'status';
+
+:root {
+    --primary1: #15172B;
+    --primary2: #262A41;
+    --customblue: #0026FF;
+    --custompink: #FF3250;
+    --customeyellow: #FFBB00;
+    --customgreen: #07E642;
+    --custompurple: #894FC6;
+    --customdarkblue: #121432;
+    --white: #ffffff;
+    --customgrey: #707070;
+    --customgreen1: #15D4A1;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    outline: none;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration:none;
+}
+
+body{
+    position:relative;
+    font-family: 'MyriadProRegular';
+    background-color: var(--primary1);
+
+    &::-webkit-scrollbar{
+        display: none;
+        scrollbar-width: 0px;
+    }
+}
+
+img{
+    // Prevent users from selecting images
+    user-select:none;
+}
+
+div.mcontainer{
+
+    div.body-container{
+        display: grid;
+        grid-template-columns: 40% 60%;
+        grid-template-areas: "LeftArea RightArea";
+        padding: 0.8em; //16px in tutorial
+
+        //1. Left Area
+        div.body-left-container{
+            grid-area: LeftArea;
+            padding: 15%;
+            position: relative;
+            
+            // Hambuger image
+            & > img{
+                position: absolute;
+                top: 0%;
+                left: 2%;
+                cursor: pointer;
+            }
+
+            // 1.1. profile
+            div.profile{
+                margin: 5px;
+
+                h1{
+                    font-family: 'Open Sans', sans-serif;
+                    font-size: 34px;
+                    color: var(--white);
+                    font-weight: 500;
+                    text-transform: capitalize;
+                }
+
+                h2{
+                    font-family: 'Open Sans', sans-serif;
+                    font-size: 16px;
+                    color: var(--customgrey);
+                    font-weight: 300;
+                    text-transform: capitalize;
+                }
+
+                p{
+                    font-family: 'Open Sans', sans-serif;
+                    font-size: 16px;
+                    color: var(--customgrey);
+                    font-weight: 300;
+                    text-transform: capitalize;
+                }
+            }//div.profile
+            
+            
+            // 1.2. Search
+            div.search{
+                border: unset;
+                border-radius: 14px;
+                padding: 17px 25px;
+                margin-top: 1.5em;
+                position: relative;
+                background-color: #70707050;
+                height: 53px;
+                margin-bottom: 35px;
+                width: 90%;
+
+                img {
+                    @extend .middle;
+                    opacity: 1;
+                    left: 25px;
+                    cursor: pointer;
+                    
+                }
+                
+                // Input search text field
+                input{
+                    border: unset;
+                    padding: 0.5em;
+                    margin-left: 0.5em;
+                    background-color: transparent;
+                    width: 100%;
+                    height: 100%;
+                    caret-color: var(--white);
+
+                    &::placeholder{
+                        background-color: unset;
+                        color: var(--customgrey);
+                        font-family: 'Open Sans', sans-serif;
+                        font-size: 14px;
+                    }
+                }
+            }//div.search
+            
+            // 2. Projects area
+            div.project{
+                margin-bottom: 70px;
+                
+                // Project header
+                h3{
+                    font-family: 'Open sans', sans-serif;
+                    font-size: 19px;
+                    color: var(--white) !important;
+
+                    span{
+                        font-size:14px;
+                        color: var(--customgrey);
+                    }
+                }
+
+                // 2.2. Project areas
+                div.projects{
+                    margin-top: 27px;
+                    display: grid;
+                    grid-template-columns: repeat(3, 112px);
+                    grid-auto-flow: dense;
+
+                    div.a-project{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: column;
+                        cursor: pointer;
+                        border-radius: 1em;
+                        background-color: transparent;
+                        margin-bottom: 1em;
+                        padding: 0.5em;
+
+                        span {
+                            font-family: "MyriadProRegular";
+                            font-size: 17px;
+                            color: var(--white);
+                            font-size: 900;
+                        }
+
+                        h6 {
+                            margin-top: 16px;
+                            font-family: 'Open Sans', sans-serif;
+                            font-size: 14px;
+                            color: var(--white);
+                        }
+
+                        div.box-color {
+                            border-radius: 1em;
+                            margin-bottom: 1px;
+                            overflow: hidden;
+                            position: relative;
+
+                            span {
+                                @extend .middle;
+                                opacity: 1;
+                            }
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                            }
+
+                            &:hover {
+                                border: 4px solid var(--custompink);
+                                transition: border 400ms eas;
+                            }
+                        }//div.box-color
+
+                        .customwidth {
+                            width: 100px;
+                            height: 94px !important;
+                        }
+
+                        &:nth-child(1) {
+                            div.box-color {
+                                background-color: var(--customblue);
+                                @extend .customwidth;
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            div.box-color {
+                                background-color: var(--custompink);
+                                @extend .customwidth;
+                            }
+                        }
+
+                        &:nth-child(3) {
+                            div.box-color {
+                                background-color: var(--customeyellow);
+                                @extend .customwidth;
+                            }
+                        }
+
+                        &:nth-child(4) {
+                            div.box-color {
+                                background-color: var(--customgreen);
+                                @extend .customwidth;
+                            }
+                        }
+
+                        &:nth-child(5) {
+                            div.box-color {
+                                background-color: var(--custompurple);
+                                @extend .customwidth;
+                            }
+                        }
+
+                        &:nth-child(6) {
+                            div.box-color {
+                                background-color: var(--customblue);
+                                @extend .customwidth;
+                            }
+                        }
+
+                    }//div.a-project
+
+                }//div.projects
+            }//div.project
+
+        }//div.body-left-container
+
+        // 2. Right area
+        div.body-right-container{
+            grid-area: RightArea;
+            position: relative;
+            background-color: #fff;
+            border-radius: 15px;
+
+            padding-top: 65px;
+            padding-bottom: 85px;
+            padding-left: 70px;
+            padding-right: 20px;
+
+            h1 {
+                font-family: "MyriadProBold";
+                font-size: 24px;
+                font-weight: 400;
+                margin-bottom: 10px;
+            }
+
+            .horizontal {
+                img {
+                    width: 122px
+                }
+
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-family: 'Open Sans', sans-serif;
+                font-size: 12px;
+                font-weight: 300;
+                width: 500px;
+            }
+
+            .users-icon {
+                position: absolute;
+                right: 42px;
+                top: 65px;
+                cursor: pointer;
+
+                img {
+                    height: 30px;
+                }
+            }
+
+            .tasks, div.today-tasks, div.upcoming-tasks {
+                margin-bottom: 1.3em;
+
+                div.add-tasks {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap:wrap;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    h2 {
+                        font-family: "MyriadProBold";
+                        font-size: 15px;
+                        font-weight: 400;
+                        flex-basis: 50%;
+                    }
+
+                    div.add-action{
+                        flex-basis:50%;
+                        display: flex;
+                        justify-content:flex-end;
+
+                        img {
+                            cursor: pointer;
+                        }
+                    }
+
+                    form{
+                        flex-basis: 100%;
+                        width: 100%;
+                    }
+                    
+                }//div.add-tasks
+
+                input[type="text"] {
+                    border: unset;
+                    border-bottom: 1px solid var(--customgrey);
+                    width: 100%;
+                    caret-color: var(--primary1);
+                }
+
+                ul.tasks-list {
+                    margin-top: 15px;
+                    margin-left: 0;
+                    padding-left: 1em;
+
+                    li {
+                        display: flex;
+                        flex-direction: column;
+
+                        div.info {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            cursor: pointer;
+                            padding: 0.3em;
+                            border-radius: 0.3em 3em;
+
+                            &:hover {
+                                background-color: #70707010;
+                                transition: all 400ms ease-in-out;
+                            }
+
+                            div.left {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+
+                                label {                                    
+                                    cursor: pointer;
+                                    margin-top: 0.3em;
+                                    padding-top: 0.4em;
+                                    margin-bottom: 0.5em;
+
+
+                                    input {
+                                        display: none;
+                                    }
+
+                                    span {
+                                        height: 20px;
+                                        width: 20px;
+                                        display: inline-block;
+                                        position: relative;
+                                        border-radius: 50px;
+                                        border: 2px solid var(--customgreen1);
+                                    }
+
+                                    [type=checkbox]:checked+span:before {
+                                        content: '\2714';
+                                        @extend .middle;
+                                        height: 20px;
+                                        width: 20px;
+                                        border-radius: 50px;
+                                        border: 2px solid var(--customgreen1);
+                                        background-color: var(--customgreen1);
+                                        opacity: 1;
+                                        font-size: 12px;
+                                        top: 45%;
+                                        color: #fff;
+                                    }
+                                }
+
+                                h4 {
+                                    margin-left: 15px;
+                                    font-family: 'Open Sans', sans-serif;
+                                    font-size: 13px;
+                                    color: var(--primary2);
+                                    font-weight: 600;
+                                }
+                            }
+
+                            .right {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                justify-content: space-between;
+
+                                img {
+                                    margin-right: 1em;
+                                    cursor: pointer;
+                                }
+
+                                button {
+                                    padding: 5px 31px;
+                                    border-radius: 50px;
+                                    border: unset;
+                                    box-shadow: unset !important;
+                                    width: 120px;
+                                    font-family: 'Open Sans', sans-serif;
+                                    font-size: 12px;
+                                    white-space: nowrap;
+                                }
+
+                            }
+                        }
+
+                        // Temporary disable
+                        form {
+                            @extend input,[type="text"];
+                        }
+                    }
+                }
+            }
+
+        
+
+        }//div.body-right-container
+
+    }//div.body-container
+}//div.mcontainer
